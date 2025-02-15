@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct SyncedLyric: Identifiable {
+    let id = UUID()
+    let timestamp: TimeInterval
+    let lyric: String
+}
