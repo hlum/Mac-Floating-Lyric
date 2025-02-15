@@ -10,9 +10,9 @@ import Foundation
 class LyricsManager {
     static let shared = LyricsManager()
     
-    func getSyncedLyrics(plainedLyrics: String) -> [SyncedLyric] {
+    func getSyncedLyrics(plainLyrics: String) -> [SyncedLyric] {
         
-        let lines = plainedLyrics.components(separatedBy: "\n")
+        let lines = plainLyrics.components(separatedBy: "\n")
         var lyrics: [SyncedLyric] = []
         
         let timeRegex = #"\[(\d+):(\d+\.\d+)\]\s*(.*)"#  // Matches [MM:SS.ss] Lyrics text

@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isPlaying: Bool = false
+    @State var artistName = "Unknown"
+    @State var songName = "Unknown"
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(isPlaying ? "Playing" : "Not Playing")
+            Text(songName)
+            Text(artistName)
         }
-        .padding()
+        .onAppear {
+            MusicMonitor.shared.startMonitoring()
+            MusicMonitor.shared.getMusicInfo = { currentMusic in
+                DispatchQueue.main.async {
+                    isPlaying = currentMusic.isPlaying
+                    songName = currentMusic.songName
+                    artistName = currentMusic.artistName
+                }
+            }
+        }
+        .frame(minWidth: 300, minHeight: 400)
     }
 }
 
