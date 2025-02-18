@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>kTCCServiceMediaLibrary</key>
+	<string>This app needs access to control Music for playback information.</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>This app needs access to control Music playback</string>
+</dict>
+</plist>

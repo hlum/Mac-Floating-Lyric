@@ -10,9 +10,22 @@
 		B575399F2D60534A007AB47A /* Lyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B5753A1F2D6214EC007AB47A /* Exceptions for "Lyrics" folder in "Lyrics" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B575399E2D60534A007AB47A /* Lyrics */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B57539A12D60534A007AB47A /* Lyrics */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B5753A1F2D6214EC007AB47A /* Exceptions for "Lyrics" folder in "Lyrics" target */,
+			);
 			path = Lyrics;
 			sourceTree = "<group>";
 		};
@@ -254,9 +267,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lyrics/Preview Content\"";
 				DEVELOPMENT_TEAM = GNG4VLAQ7U;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lyrics/Info.plist;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs access to control Music for playback information.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -281,9 +296,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lyrics/Preview Content\"";
 				DEVELOPMENT_TEAM = GNG4VLAQ7U;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lyrics/Info.plist;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs access to control Music for playback information.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

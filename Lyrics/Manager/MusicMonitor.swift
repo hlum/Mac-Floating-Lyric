@@ -7,11 +7,12 @@
 
 import Foundation
 import AppKit
+import MediaPlayer
 
 class MusicMonitor {
     static let shared = MusicMonitor()
-    var lastTimePlayState: Bool? // Start as nil to force first update
-     var lastTrackTitle: String? // Track the last song to detect song change
+    var lastTimeUpdate:Date = .now + 0.5
+    var timeBetweenUpdate:TimeInterval = 0.5
     var getMusicInfo: ((CurrentMusic) -> Void)?
 
     private init() {}
@@ -41,10 +42,8 @@ class MusicMonitor {
         let artist = userInfo["Artist"] as? String ?? "Unknown Artist"
         let isPlaying = (userInfo["Player State"] as? String == "Playing")
 
-        // Check if the song has changed or if the player state changed
-        if lastTrackTitle != trackTitle || lastTimePlayState == nil || isPlaying != lastTimePlayState {
-            lastTrackTitle = trackTitle
-            lastTimePlayState = isPlaying
+        if Date().timeIntervalSince(lastTimeUpdate) > timeBetweenUpdate {
+            lastTimeUpdate = Date()
             
             let currentMusic = CurrentMusic(
                 isPlaying: isPlaying,
@@ -53,5 +52,16 @@ class MusicMonitor {
             )
             getMusicInfo?(currentMusic)
         }
+        
     }
+    
+
+
+    
+    func formatTime(_ timeInterval: TimeInterval) -> String {
+        let minutes = Int(timeInterval / 60)
+        let seconds = Int(timeInterval.truncatingRemainder(dividingBy: 60))
+        return String(format: "%d:%02d", minutes, seconds)
+    }
+
 }
