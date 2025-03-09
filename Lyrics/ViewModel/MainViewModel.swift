@@ -96,7 +96,7 @@ final class MainViewModel {
         if Date().timeIntervalSince(lastUpdatedTime) > timeBetweenUpdate {
             // check for playback duration for every 2sec
             lastUpdatedTime = Date()
-            currentTime = getMusicPlaybackTime()
+            currentTime = MusicMonitor.shared.getMusicPlaybackTime()
         }
         if let lyric = lyrics.last(where: { $0.timestamp <= currentTime + currentTimeFixDelta }) {
             if currentLyrics != lastTimeLyrics {
@@ -110,33 +110,4 @@ final class MainViewModel {
     func stopTimer() {
         timer?.cancel()
     }
-    
-    func getMusicPlaybackTime() -> TimeInterval {
-        let task = Process()
-        let pipe = Pipe()
-        
-        // Run command via bash to ensure it works like Terminal
-        task.executableURL = URL(fileURLWithPath: "/bin/bash")
-        
-        // Pass the osascript command as a shell command
-        task.arguments = ["-c", "osascript -e 'tell application \"Music\" to player position'"]
-        
-        task.standardOutput = pipe
-        
-        do {
-            try task.run()
-            
-            let data = pipe.fileHandleForReading.readDataToEndOfFile()
-            if let output = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines),
-               let timeInterval = Double(output){
-                return Double(timeInterval)
-            }
-        } catch {
-            Logger.standard.error("Error executing script: \(error.localizedDescription)")
-            return 0
-        }
-        Logger.standard.error("Failed to retrieve playback time")
-        return 0
-    }
-    
 }

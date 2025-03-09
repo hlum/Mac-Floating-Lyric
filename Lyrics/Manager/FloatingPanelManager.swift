@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-class FloatingPanelManager {
+class FloatingPanelManager: ObservableObject{
     static let shared = FloatingPanelManager()
     private var panel: FloatingPanel<FloatingWindow>?
 
@@ -21,7 +21,6 @@ class FloatingPanelManager {
             
             panel = FloatingPanel(
                 view: { FloatingWindow() },
-                contentRect: NSRect(x: 200, y: 100, width: 300, height: 100),
                 isPresented: binding
             )
         }

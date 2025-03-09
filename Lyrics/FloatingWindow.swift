@@ -19,7 +19,7 @@ struct FloatingWindow: View {
     }
     
     private var minWidth: CGFloat {
-        min(200, CGFloat(vm.currentLyrics.count) * 30)
+        min(300, CGFloat(vm.currentLyrics.count) * 30)
     }
 
     private var minHeight: CGFloat {
