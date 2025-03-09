@@ -6,12 +6,29 @@
 //
 
 import SwiftUI
+import LaunchAtLogin
 
 @main
 struct LyricsApp: App {
+    
+    init() {
+        FloatingPanelManager.shared.show()
+    }
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        MenuBarExtra("Lyrics", systemImage: "music.note") {
+            Form {
+                LaunchAtLogin.Toggle()
+            }
+            .frame(minWidth: 200, minHeight: 200)
         }
+        
+        Settings {
+            Form {
+                LaunchAtLogin.Toggle()
+            }
+            .frame(minWidth: 200, minHeight: 200)
+        }
+        
     }
 }

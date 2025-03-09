@@ -8,25 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State var vm = MainViewModel()
-    
     var body: some View {
         VStack {
-            Text(vm.currentLyrics)
-                .font(.title)
-                .animation(.easeInOut, value: vm.currentLyrics)
-            Text("\(vm.currentTime) s")
-                .font(.title2)
-            
-         
-
+            Text("Hello World")
         }
-        .onAppear {
-            
-        }
-        .frame(minWidth: 300, minHeight: 400)
+        .frame(minWidth: 300, minHeight: 200)
     }
+    
 }
 
 #Preview {

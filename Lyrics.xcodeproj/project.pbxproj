@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B5753A6E2D646CD0007AB47A /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = B5753A6D2D646CD0007AB47A /* LaunchAtLogin */; };
+		B5DE45132D6DFB57000C1839 /* ORSSerial in Frameworks */ = {isa = PBXBuildFile; productRef = B5DE45122D6DFB57000C1839 /* ORSSerial */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B575399F2D60534A007AB47A /* Lyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5753A6E2D646CD0007AB47A /* LaunchAtLogin in Frameworks */,
+				B5DE45132D6DFB57000C1839 /* ORSSerial in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = Lyrics;
 			packageProductDependencies = (
+				B5753A6D2D646CD0007AB47A /* LaunchAtLogin */,
+				B5DE45122D6DFB57000C1839 /* ORSSerial */,
 			);
 			productName = Lyrics;
 			productReference = B575399F2D60534A007AB47A /* Lyrics.app */;
@@ -107,6 +116,10 @@
 			);
 			mainGroup = B57539962D60534A007AB47A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B5753A6C2D646CD0007AB47A /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
+				B5DE45112D6DFB57000C1839 /* XCRemoteSwiftPackageReference "ORSSerialPort" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B57539A02D60534A007AB47A /* Products */;
 			projectDirPath = "";
@@ -271,7 +284,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lyrics/Info.plist;
-				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs access to control Music for playback information.";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs access to control Music playback";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,7 +314,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lyrics/Info.plist;
-				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs access to control Music for playback information.";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs access to control Music playback";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -336,6 +351,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5753A6C2D646CD0007AB47A /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		B5DE45112D6DFB57000C1839 /* XCRemoteSwiftPackageReference "ORSSerialPort" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/armadsen/ORSSerialPort";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5753A6D2D646CD0007AB47A /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5753A6C2D646CD0007AB47A /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
+		};
+		B5DE45122D6DFB57000C1839 /* ORSSerial */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5DE45112D6DFB57000C1839 /* XCRemoteSwiftPackageReference "ORSSerialPort" */;
+			productName = ORSSerial;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B57539972D60534A007AB47A /* Project object */;
 }

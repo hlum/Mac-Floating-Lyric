@@ -4,7 +4,5 @@
 <dict>
 	<key>kTCCServiceMediaLibrary</key>
 	<string>This app needs access to control Music for playback information.</string>
-	<key>NSAppleEventsUsageDescription</key>
-	<string>This app needs access to control Music playback</string>
 </dict>
 </plist>

@@ -18,6 +18,8 @@ final class MainViewModel {
     
     @ObservationIgnored let apiCaller = ApiCaller()
     
+    @ObservationIgnored private var lastTimeLyrics: String? = nil
+    
     @ObservationIgnored private var timer: AnyCancellable? = nil
     
     @ObservationIgnored private var lastTimeSongName: String? = nil
@@ -26,6 +28,8 @@ final class MainViewModel {
     
     @ObservationIgnored private var lastUpdatedTime: Date = Date() + 3
     @ObservationIgnored private var timeBetweenUpdate: TimeInterval = 2
+    
+    @ObservationIgnored private var currentTimeFixDelta: TimeInterval = 1
     
     init() {
         getCurrentPlayingSongInfoAndSearchLyrics()
@@ -94,7 +98,11 @@ final class MainViewModel {
             lastUpdatedTime = Date()
             currentTime = getMusicPlaybackTime()
         }
-        if let lyric = lyrics.last(where: { $0.timestamp <= currentTime }) {
+        if let lyric = lyrics.last(where: { $0.timestamp <= currentTime + currentTimeFixDelta }) {
+            if currentLyrics != lastTimeLyrics {
+                SerialManager2.shared.sendMessage(message: lyric.lyric)
+                lastTimeLyrics = lyric.lyric
+            }
             currentLyrics = lyric.lyric
         }
     }
