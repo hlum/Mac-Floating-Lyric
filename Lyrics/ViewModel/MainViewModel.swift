@@ -17,9 +17,7 @@ final class MainViewModel {
     var lyrics: [SyncedLyric] = []
     
     @ObservationIgnored let apiCaller = ApiCaller()
-    
-    @ObservationIgnored private var lastTimeLyrics: String? = nil
-    
+        
     @ObservationIgnored private var timer: AnyCancellable? = nil
     
     @ObservationIgnored private var lastTimeSongName: String? = nil
@@ -99,11 +97,21 @@ final class MainViewModel {
             currentTime = MusicMonitor.shared.getMusicPlaybackTime()
         }
         if let lyric = lyrics.last(where: { $0.timestamp <= currentTime + currentTimeFixDelta }) {
-            if currentLyrics != lastTimeLyrics {
-                SerialManager2.shared.sendMessage(message: lyric.lyric)
-                lastTimeLyrics = lyric.lyric
+            let unicodeLyrics = changeToUnicode(lyric.lyric)
+
+            if currentLyrics != unicodeLyrics {
+                SerialManager2.shared.sendMessage(message: unicodeLyrics)
+                Logger.standard.info("\(unicodeLyrics)")
+                currentLyrics = unicodeLyrics
             }
-            currentLyrics = lyric.lyric
+        }
+    }
+    
+    private func changeToUnicode(_ input: String) -> String {
+        if Rabbit.isZawgyiV2(input) {
+            return Rabbit.zg2uni(input)
+        } else {
+            return input
         }
     }
     

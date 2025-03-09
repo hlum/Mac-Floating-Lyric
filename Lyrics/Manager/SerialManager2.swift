@@ -88,7 +88,6 @@ final class SerialManager2: NSObject, ORSSerialPortDelegate{
     func sendMessage(message: String) {
         
         let messageToSend = "\(message)\n"
-        Logger.standard.info("\(messageToSend)")
         if let data = messageToSend.data(using: .ascii) {
             guard let serialPort else {
                 Logger.standard.error("No serial port to send data to!")

@@ -26,7 +26,6 @@ final class ApiCaller {
             return ""
         }
         print(url)
-        https://lrclib.net/api/search?q=Norwegian%20Wood%20The%20Beatles
         do {
             let (data, response) = try await URLSession.shared.data(from: url)
             guard let response = response as? HTTPURLResponse,
@@ -34,7 +33,7 @@ final class ApiCaller {
                 Logger.standard.error("!! Invalid url response")
                 return ""
             }
-            
+          
             let decoder = JSONDecoder()
             let lyrics = try decoder.decode(Lyrics.self, from: data)
             return lyrics.syncedLyrics
