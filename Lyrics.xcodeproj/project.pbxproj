@@ -286,6 +286,8 @@
 				INFOPLIST_FILE = Lyrics/Info.plist;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs access to control Music playback";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs bluetooth to show lyrics on other device.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "This app needs bluetooth to show lyrics on other device.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -316,6 +318,8 @@
 				INFOPLIST_FILE = Lyrics/Info.plist;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs access to control Music playback";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs bluetooth to show lyrics on other device.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "This app needs bluetooth to show lyrics on other device.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

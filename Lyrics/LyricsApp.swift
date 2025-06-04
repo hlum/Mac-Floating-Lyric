@@ -17,18 +17,13 @@ struct LyricsApp: App {
     
     var body: some Scene {
         MenuBarExtra("Lyrics", systemImage: "music.note") {
-            Form {
+            VStack(alignment: .leading, spacing: 12) {
                 LaunchAtLogin.Toggle()
+                Button("Quit") {
+                    NSApplication.shared.terminate(nil)
+                }
             }
             .frame(minWidth: 200, minHeight: 200)
         }
-        
-        Settings {
-            Form {
-                LaunchAtLogin.Toggle()
-            }
-            .frame(minWidth: 200, minHeight: 200)
-        }
-        
     }
 }
